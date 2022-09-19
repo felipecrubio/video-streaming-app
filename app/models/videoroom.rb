@@ -1,0 +1,2 @@
+class Videoroom < ApplicationRecord
+end
