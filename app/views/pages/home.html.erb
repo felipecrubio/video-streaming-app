@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<main>
+  <h1>Salas de Vídeo</h1>
+
+  <div class="container">
+    <% @videorooms.each do |videoroom| %>
+      <h2><%= videoroom.name %></h2>
+    <% end %>
+  </div>
+
+</main>
