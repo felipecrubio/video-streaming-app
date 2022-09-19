@@ -23,6 +23,6 @@ class VideoroomsController < ApplicationController
   private
 
   def videoroom_params
-    params.require(:videoroom).permit(:name)
+    params.require(:videoroom).permit(:name, :video)
   end
 end
