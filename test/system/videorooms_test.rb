@@ -16,10 +16,10 @@ class VideoroomsTest < ApplicationSystemTestCase
   test "lets a visitor create a new videoroom" do
     visit "/videorooms/new"
 
-    fill_in "videoroom_name", with: "Nova sala"
+    fill_in "videoroom_name", with: "Minha primeira sala"
 
     click_on "Criar sala"
 
-    assert_text "Nova sala"
+    assert_text "Minha primeira sala"
   end
 end
