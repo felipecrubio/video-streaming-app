@@ -3,6 +3,7 @@ class VideoroomsController < ApplicationController
 
   def show
     @videoroom = Videoroom.find_by(id: params[:id])
+    @message = Message.new
   end
 
   def new
