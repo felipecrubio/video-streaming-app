@@ -1,7 +1,5 @@
-<main>
-
-  <div class="row">
-
+<div class="row">
+  <% if videoroom.present? %>
     <div class="col-12 col-lg-10 p-0">
       <%= cl_video_tag videoroom.video.key, controls: true, crop: :fill, class:"d-block w-100" %>
     </div>
@@ -33,7 +31,5 @@
 
       </div>
     </div>
-
-  </div>
-
-</main>
+  <% end %>
+</div>
