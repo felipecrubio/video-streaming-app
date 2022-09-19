@@ -7,6 +7,8 @@
 
     <h1><%= @videoroom.name %></h1>
 
+    <%= cl_video_tag @videoroom.video.key, controls: true, height: 300, width: 400, crop: :fill %>
+
     <div class="messages" data-videoroom-subscription-target="messages">
       <% @videoroom.messages.each do |message| %>
         <%= render "messages/message", message: message %>
