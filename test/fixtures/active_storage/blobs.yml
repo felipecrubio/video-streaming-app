@@ -1,0 +1,1 @@
+bridge_video_blob: <%= ActiveStorage::FixtureSet.blob filename: "bridge.jpg", service_name: "test_fixtures" %>
