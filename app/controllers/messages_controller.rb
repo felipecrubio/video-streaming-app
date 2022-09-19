@@ -7,7 +7,11 @@ class MessagesController < ApplicationController
     @message.videoroom = @videoroom
     @message.user = current_user
     if @message.save
-      redirect_to videoroom_path(@videoroom)
+      VideoroomChannel.broadcast_to(
+        @videoroom,
+        render_to_string(partial: "message", locals: { message: @message })
+      )
+      head :ok
     else
       render "videorooms/show", status: :unprocessable_entity
     end
