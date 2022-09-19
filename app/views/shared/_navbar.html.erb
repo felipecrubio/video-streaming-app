@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-2">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= image_tag "https://www.erural.net/assets/logos/erural_color-29185a2792a68a60c53900c81e4b9d1cf8486c1cb2d6bfbde78ee28a037e5ebb.svg" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +18,7 @@
             <%= link_to "Nova sala", new_videoroom_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
+            <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
           </li>
         <% else %>
           <li class="nav-item active">
@@ -28,7 +28,7 @@
             <%= link_to "Nova sala", new_videoroom_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Entrar", new_user_registration_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
