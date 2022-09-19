@@ -12,6 +12,8 @@ class MessagesController < ApplicationController
         render_to_string(partial: "message", locals: { message: @message })
       )
       head :ok
+    elsif current_user.nil?
+      redirect_to new_user_registration_path
     else
       render "videorooms/show", status: :unprocessable_entity
     end

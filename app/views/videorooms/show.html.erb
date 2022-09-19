@@ -1,37 +1,24 @@
-<main>
+<main class="p-4 pt-0">
 
-  <div class="row">
+  <div class="row pt-2">
 
-    <div class="col-12 col-md-9 p-0">
-      <%= cl_video_tag @videoroom.video.key, controls: true, crop: :fill, class:"d-block w-100" %>
+    <div class="col-12 col-lg-1 ps-0">
+      <h4>Salas</h4>
+
+      <div>
+        <% @videorooms.each_with_index do |videoroom, index| %>
+          <%= link_to videoroom_path(videoroom), class: "a-style-none" do %>
+            <p class="video-list-item mb-1"><%= index + 1 %>. <%= videoroom.name %></p>
+          <% end %>
+        <% end %>
+      </div>
+
+      <%= link_to 'Criar sala', new_videoroom_path, class: "btn btn-outline-dark w-100 my-3" %>
+
     </div>
 
-    <div class="col-12 col-md-3 p-0">
-      <div class="videoroom"
-          data-controller="videoroom-subscription"
-          data-videoroom-subscription-videoroom-id-value="<%= @videoroom.id %>"
-      >
-
-        <h1><%= @videoroom.name %></h1>
-
-        <div class="messages" data-videoroom-subscription-target="messages">
-          <% @videoroom.messages.each do |message| %>
-            <%= render "messages/message", message: message %>
-          <% end %>
-        </div>
-
-        <%= simple_form_for [@videoroom, @message],
-          html: { data: { action: "turbo:submit-end->videoroom-subscription#resetForm" }, class: "d-flex" } do |f|
-        %>
-          <%= f.input :content,
-            label: false,
-            placeholder: "Messagem para ##{@videoroom.name}",
-            wrapper_html: {class: "flex-grow-1"}
-          %>
-          <%= f.submit "Enviar", class: "btn btn-primary mb-3" %>
-        <% end %>
-
-      </div>
+    <div class="col-12 col-lg-11 pe-0">
+      <%= render "videorooms/videoroom", videoroom: @videoroom, message: @message %>
     </div>
 
   </div>
