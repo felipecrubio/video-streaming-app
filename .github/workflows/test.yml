@@ -4,7 +4,7 @@ name: Test
 on: [push]
 
 env:
-  CLOUDINARY_URL: secrets.SECRET_TOKEN
+  CLOUDINARY_URL: ${{ secrets.SECRET_TOKEN }}
 
 jobs:
   test:
