@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @videorooms = Videoroom.all
+    @videoroom = Videoroom.new
     @message = Message.new
   end
 end
