@@ -1,10 +1,26 @@
-<main>
-  <h1>Salas de Vídeo</h1>
+<main class="p-4 pt-0">
 
-  <div class="container">
-    <% @videorooms.each do |videoroom| %>
-      <h2><%= videoroom.name %></h2>
-    <% end %>
+  <div class="row pt-2">
+
+    <div class="col-12 col-md-1 ps-0">
+      <h4>Salas</h4>
+
+      <div>
+        <% @videorooms.each_with_index do |videoroom, index| %>
+          <%= link_to videoroom_path(videoroom), class: "a-style-none" do %>
+            <p class="video-list-item mb-1"><%= index + 1 %>. <%= videoroom.name %></p>
+          <% end %>
+        <% end %>
+      </div>
+
+      <%= link_to 'Criar sala', new_videoroom_path, class: "btn btn-outline-dark w-100 mt-3" %>
+
+    </div>
+
+    <div class="col-12 col-md-11 p-0">
+      <%= render "videorooms/videoroom", videoroom: @videorooms.first, message: @message %>
+    </div>
+
   </div>
 
 </main>

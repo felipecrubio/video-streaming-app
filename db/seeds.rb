@@ -1,5 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+require "open-uri"
 
 puts "[1/4] - Cleaning database
 \n"
@@ -15,7 +16,12 @@ p User.create!(first_name: "Boris", last_name: "Bora", email: "boris@test.com", 
 puts "\n[3/4] - Creating 5 videorooms...
 \n"
 5.times do |i|
-  videoroom = Videoroom.create!(name: Faker::Company.name)
+  videoroom = Videoroom.new
+  videoroom.name = Faker::Company.name
+  file = URI.open("https://img.freepik.com/premium-vector/raised-hands-volunteers-concept_36244-204.jpg")
+  videoroom.video.attach(io: file, filename: "myimage.jpg", content_type: "image/jpg")
+  videoroom.save!
+
   puts "#{i + 1}. #{videoroom.name}"
 end
 puts "\n[4/4] - Finished!

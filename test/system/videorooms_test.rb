@@ -4,13 +4,13 @@ class VideoroomsTest < ApplicationSystemTestCase
   test "visiting videorooms index" do
     visit root_url
 
-    assert_selector "h1", text: "Salas de Vídeo"
+    assert_selector "h4", text: "Salas"
   end
 
   test "displays as much videorooms as in db" do
     visit root_url
 
-    assert_selector "h2", count: Videoroom.count
+    assert_selector ".video-list-item", count: Videoroom.count
   end
 
   test "lets a visitor create a new videoroom" do
