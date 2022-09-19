@@ -25,6 +25,9 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+      cloudinary:
+        env:
+          CLOUDINARY_URL: secrets.SECRET_TOKEN
     steps:
       - name: Checkout repository # copies repo in runner
         uses: actions/checkout@v2 # short for https://github.com/actions/checkout
