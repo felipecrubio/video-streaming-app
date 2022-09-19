@@ -18,6 +18,8 @@ class VideoroomsTest < ApplicationSystemTestCase
 
     fill_in "videoroom_name", with: "Minha primeira sala"
 
+    page.attach_file("Video", "public/test/uploads/tmp/bridge.jpg")
+
     click_on "Criar sala"
 
     assert_text "Minha primeira sala"
