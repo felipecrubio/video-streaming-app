@@ -1,0 +1,8 @@
+skello_video_attachment:
+  name: video
+  record: skello (Videoroom)
+  blob: bridge_video_blob
+roadstr_video_attachment:
+  name: video
+  record: roadstr (Videoroom)
+  blob: bridge_video_blob
