@@ -18,6 +18,7 @@ class VideoroomsTest < ApplicationSystemTestCase
 
     fill_in "videoroom_name", with: "Minha primeira sala"
 
+    # Cloudinary
     page.attach_file("Video", "public/test/uploads/tmp/bridge.jpg")
 
     click_on "Criar sala"
