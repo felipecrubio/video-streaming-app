@@ -3,6 +3,9 @@ name: Test
 # triggers on
 on: [push]
 
+env:
+  CLOUDINARY_URL: secrets.SECRET_TOKEN
+
 jobs:
   test:
     env:
