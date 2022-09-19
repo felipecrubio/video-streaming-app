@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   def store_user_location!
     # :user is the scope we are authenticating
-    store_location_for(:user, request.fullpath)
+    store_location_for(:user, request.fullpath) unless new_videoroom_path
+    store_location_for(:user, videoroom_path(Videoroom.last)) if new_videoroom_path
   end
 end
