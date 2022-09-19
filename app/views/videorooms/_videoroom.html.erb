@@ -2,30 +2,30 @@
 
   <div class="row">
 
-    <div class="col-12 col-md-9 p-0">
-      <%= cl_video_tag @videoroom.video.key, controls: true, crop: :fill, class:"d-block w-100" %>
+    <div class="col-12 col-md-10 p-0">
+      <%= cl_video_tag videoroom.video.key, controls: true, crop: :fill, class:"d-block w-100" %>
     </div>
 
-    <div class="col-12 col-md-3 p-0">
+    <div class="col-12 col-md-2 ps-0">
       <div class="videoroom"
           data-controller="videoroom-subscription"
-          data-videoroom-subscription-videoroom-id-value="<%= @videoroom.id %>"
+          data-videoroom-subscription-videoroom-id-value="<%= videoroom.id %>"
       >
 
-        <h1><%= @videoroom.name %></h1>
+        <h1><%= videoroom.name %></h1>
 
         <div class="messages" data-videoroom-subscription-target="messages">
-          <% @videoroom.messages.each do |message| %>
+          <% videoroom.messages.each do |message| %>
             <%= render "messages/message", message: message %>
           <% end %>
         </div>
 
-        <%= simple_form_for [@videoroom, @message],
+        <%= simple_form_for [videoroom, @message],
           html: { data: { action: "turbo:submit-end->videoroom-subscription#resetForm" }, class: "d-flex" } do |f|
         %>
           <%= f.input :content,
             label: false,
-            placeholder: "Messagem para ##{@videoroom.name}",
+            placeholder: "Messagem para ##{videoroom.name}",
             wrapper_html: {class: "flex-grow-1"}
           %>
           <%= f.submit "Enviar", class: "btn btn-primary mb-3" %>
