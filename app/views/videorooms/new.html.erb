@@ -2,8 +2,14 @@
   <div class="form-card b-round p-5">
     <h4 class="text-center mb-4">Crie sua sala de vídeo</h4>
     <%= simple_form_for @videoroom do |f| %>
-      <%= f.input :name, label: "Nome da sala" %>
-      <%= f.input :video, as: :file, input_html: { value: "Nenhum arquivo escolhido" }  %>
+      <%= f.input :name,
+                  label: "Nome da sala",
+                  required: true,
+                  autofocus: true %>
+      <%= f.input :video, as: :file,
+                  required: true,
+                  autofocus: true,
+                  input_html: { value: "Nenhum arquivo escolhido" }  %>
       <%= f.submit "Criar sala", class: "btn btn-outline-dark w-100" %>
     <% end %>
   </div>
